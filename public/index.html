@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b14">
+<title>All Downloader</title>
+<style>
+:root{color-scheme:dark;--bg:#080b14;--panel:#111827;--muted:#9ca3af;--line:#263247;--cyan:#36e4df;--violet:#9274ff}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 15% 0%,#162b45 0,transparent 42%),radial-gradient(ellipse at 90% 20%,#251944 0,transparent 38%),var(--bg);color:#f8fafc;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;align-items:center;justify-content:center;padding:28px 15px}
+.wrap{width:min(760px,100%)}.brand{text-align:center;margin-bottom:26px}.logo{width:58px;height:58px;border-radius:18px;margin:auto auto 14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--violet));color:#07111b;font-size:27px;font-weight:900;box-shadow:0 0 35px #36e4df44}
+h1{font-size:clamp(30px,6vw,44px);margin:0;letter-spacing:-1.5px}.brand p{color:var(--muted);margin:9px 0 0}.card{background:#111827eF;border:1px solid var(--line);border-radius:24px;padding:clamp(18px,4vw,30px);box-shadow:0 25px 80px #0007;backdrop-filter:blur(16px)}
+label{display:block;color:#dbe4f0;font-size:14px;font-weight:650;margin:0 0 10px}.urlrow{display:flex;gap:10px}.urlrow input{flex:1;min-width:0}.field,input,select{width:100%;background:#080e1b;border:1px solid #344258;color:#f8fafc;border-radius:13px;padding:15px;font:inherit;outline:none}.field:focus,input:focus,select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #36e4df1b}button{border:0;border-radius:13px;padding:14px 20px;font:700 15px inherit;cursor:pointer;color:#07111b;background:linear-gradient(110deg,var(--cyan),#9d8aff);white-space:nowrap}button:disabled{opacity:.55;cursor:wait}.controls{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}.hint{font-size:12px;color:var(--muted);margin-top:12px}.preview{display:none;gap:14px;align-items:center;margin-top:20px;padding:13px;background:#0a1220;border:1px solid var(--line);border-radius:16px}.preview img{width:116px;aspect-ratio:16/9;object-fit:cover;border-radius:10px}.preview h3{font-size:15px;margin:0 0 6px}.preview p{font-size:12px;color:var(--muted);margin:0}.actions{display:flex;gap:10px;margin-top:20px}.actions button{flex:1}.status{display:none;margin-top:16px;padding:13px;border-radius:12px;font-size:14px;line-height:1.5;background:#0a2530;color:#a5f3fc}.status.error{background:#35151d;color:#fecdd3}.features{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:20px}.chip{font-size:12px;color:#cbd5e1;border:1px solid #29364b;border-radius:999px;padding:7px 11px}.foot{text-align:center;color:#748197;font-size:12px;line-height:1.6;margin:18px 8px 0}
+@media(max-width:560px){.urlrow{flex-direction:column}.controls{grid-template-columns:1fr}.preview img{width:94px}.actions{flex-direction:column}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="brand"><div class="logo">↓</div><h1>ALL DOWNLOADER</h1><p>One link. Simple download.</p></header>
+  <section class="card">
+    <label for="url">ভিডিও বা অডিও লিংক দিন</label>
+    <div class="urlrow"><input id="url" type="url" placeholder="https://example.com/video" autocomplete="url"><button id="check">লিংক চেক</button></div>
+    <div class="preview" id="preview"><img id="thumb" alt="ভিডিও থাম্বনেইল"><div><h3 id="title"></h3><p id="uploader"></p></div></div>
+    <div class="controls">
+      <div><label for="format">ডাউনলোড ফরম্যাট</label><select id="format"><option value="best">সেরা উপলভ্য কোয়ালিটি</option><option value="1080">সর্বোচ্চ 1080p</option><option value="720">সর্বোচ্চ 720p</option><option value="480">সর্বোচ্চ 480p</option><option value="360">সর্বোচ্চ 360p</option><option value="audio">MP3 অডিও</option></select></div>
+      <div><label>সাপোর্ট</label><div class="field" style="color:#9ca3af">yt-dlp সমর্থিত পাবলিক সাইট</div></div>
+    </div>
+    <div class="actions"><button id="download">ডাউনলোড শুরু করুন</button></div>
+    <div class="status" id="status" role="status"></div>
+    <p class="hint">প্লেলিস্ট ডিফল্টভাবে বন্ধ রাখা হয়েছে। বড় ফাইল ডাউনলোড হতে সময় লাগতে পারে।</p>
+  </section>
+  <div class="features"><span class="chip">Video</span><span class="chip">MP3 Audio</span><span class="chip">Quality Options</span><span class="chip">Mobile Friendly</span></div>
+  <p class="foot">শুধু নিজের তৈরি, পাবলিক ডাউনলোড-অনুমোদিত বা আপনার ব্যবহারের অধিকার থাকা কনটেন্ট ডাউনলোড করুন। DRM, পেইড বা অ্যাক্সেস-নিয়ন্ত্রিত কনটেন্ট এড়িয়ে চলুন। সাইটের শর্ত ও কপিরাইট আইন মেনে ব্যবহার করুন।</p>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const url = $("url"), statusBox = $("status"), checkBtn = $("check"), downloadBtn = $("download");
+function status(message, error=false){statusBox.textContent=message;statusBox.className="status"+(error?" error":"");statusBox.style.display="block";}
+function validInput(){if(!url.value.trim()){status("আগে একটি লিংক দিন।",true);return false;}return true;}
+async function post(path, body){const r=await fetch(path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});const data=await r.json().catch(()=>({error:"সার্ভার থেকে সঠিক উত্তর পাওয়া যায়নি।"}));if(!r.ok)throw new Error(data.error||"অনুরোধ ব্যর্থ হয়েছে।");return data;}
+checkBtn.addEventListener("click",async()=>{if(!validInput())return;checkBtn.disabled=true;status("লিংক পরীক্ষা করা হচ্ছে...");$("preview").style.display="none";try{const d=await post("/api/info",{url:url.value.trim()});$("title").textContent=d.title;$("uploader").textContent=d.uploader;$("thumb").src=d.thumbnail||"";$("preview").style.display="flex";status("লিংক পাওয়া গেছে। এখন ফরম্যাট বেছে ডাউনলোড করুন।");}catch(e){status(e.message,true);}finally{checkBtn.disabled=false;}});
+downloadBtn.addEventListener("click",async()=>{if(!validInput())return;downloadBtn.disabled=true;status("ডাউনলোড প্রস্তুত হচ্ছে...");try{const r=await fetch("/api/download",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({url:url.value.trim(),format:$("format").value})});if(!r.ok){const d=await r.json().catch(()=>({}));throw new Error(d.error||"ডাউনলোড ব্যর্থ হয়েছে।");}const blob=await r.blob();const disposition=r.headers.get("Content-Disposition")||"";let filename="download";const match=disposition.match(/filename\\*=UTF-8''([^;]+)|filename="?([^";]+)"?/i);if(match)filename=decodeURIComponent(match[1]||match[2]);const a=document.createElement("a");const objectUrl=URL.createObjectURL(blob);a.href=objectUrl;a.download=filename;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(objectUrl);status("ডাউনলোড সম্পন্ন হয়েছে।");}catch(e){status(e.message,true);}finally{downloadBtn.disabled=false;}});
+</script>
+</body>
+</html>
